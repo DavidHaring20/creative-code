@@ -1,0 +1,91 @@
+Lesson 1. 1.2.2021.-7.2.2021.
+
+• var - a tag which stands for "variable". Variables act as a containers for storing 
+    information in Javascript. When we write "var", that process is called "declaring a variable". 
+|--> SYNTAX: var element = example
+
+• querySelector - That is a method of a Document which returns first element which matches the 
+    specified selector or group of selectors in that document. If there are no elements that match, "null" 
+    is return instead of any element.
+|--> SYNTAX: document.querySelector()
+
+• width - That is a property which can be used in CSS and in Javascrip and it marks how wide from 
+    left side to the right side of the screen something is. 
+|--> SYNTAX: element.width 
+
+• innerWidth - This is a property which returns the width of the window's visual viewport. Or in other words, 
+    it returns the interior width. 
+|--> SYNTAX: window.innerWidth
+
+• height - That is a property which declares how long from top of the page to the bottom of the page something is.
+|--> SYNTAX: element.height
+
+• innerHeight - That is a property which returns the height of the window's visual viewport. Or in other words, 
+    it returns the interior height.
+|--> SYNTAX: windowd.innerHeight
+
+• border - It is a style-property which can manipulate appearance of some borders of some HTML elements.
+|--> SYNTAX: border 
+
+• body - It is a tag which marks the body of an HTML document. It contains all the content of the HTML document.
+    There can be only one body element per HTML document. 
+|--> SYNTAX: body 
+
+• margin - Is a property which can manipulate the space outside of any defined borders. We can create space 
+    or we can remove space.
+|--> SYNTAX: margin 
+
+• getContext - It is a method that returns a drawing context on a canvas. It will return "null" if it can't 
+    find an element with matching specifier of it that matching canvas was already been set to a different context mode.
+|--> SYNTAX: element.getContext()
+
+• fillRect - It is a method of the HTML5 Canvas. It is used to draw the "filled" rectangle. 
+    Default color of that rectangle is black and that method takes in 4 arguments. 
+    x -> x-coordinate of the upper left corner of the rectangle 
+    y -> y-coorinate of the upper left corner of the rectangle
+    width -> the width of the rectangle expressed in pixels 
+    height -> the height of the rectangle expressed in pixels 
+|--> SYNTAX: context.fillRect(x, y, width, height)
+
+• beginPath - It is a method that begins the path, or resets the current path. 
+|--> SYNTAX: context.beginPath()
+
+• moveTo - It is a method which begins a new sub-path at the point specified. It takes in 2 arguments(x and y).
+    x -> horizontal coordinate of the point starting from the top left 
+    y -> vertical coordinate of the point starting from the top left 
+|--> SYNTAX: context.moveTo(x, y)
+
+• lineTo - It is a method that adds a new point and create a line TO to that point FROM the last specified 
+    point in the canvas. It also takes in 2 arguments (x and y). 
+    x -> horizontal coordinate of the point starting from the top left 
+    y -> vertical coordinate of the point starting from the top left 
+    However, that line will remain invisible. We must use "stroke" method to actually draw the line.
+|--> SYNTAX: context.lineTo(x, y);
+
+• stroke - It is a method that strokes(outlines) the current or given path with the currnet strok style. 
+|--> SYNTAX: context.stroke();
+
+• strokeStyle - It is a property and it specifies the color, gradient or pattern to use for strokes(outlines) 
+    around shapes. The default is black or #000.
+|--> SYNTAX: context.strokeStyle 
+
+• fillStyle - It is a property that specifies which color, gradient or pattern to use inside shapes. The 
+    default style/color is black or #000.
+|--> SYNTAX: context.fillStyle
+
+• fill - It is a method that fills the current drawing path. The default color is black or #000. 
+    It is used to fill in with another color or gradient. Before we can use this method, we need to close the 
+    path with the closePath() method. 
+|--> SYNTAX: context.fill()
+
+• closePath - It is a method that creates a path from the current point back to the starting point.
+|--> SYNTAX: context.closePath()
+
+• arc - Is a method that can create an arc/curve. It takes in 5 arguments. 
+    x -> x-coordinate of the center of the circle 
+    y -> y-coordinate of the center of the circle 
+    r -> radius(how long the circle will be from center to the end)
+    startingAngle -> where will the circle start. It is expressed in radians.(0° = 0 rad)
+    endingAngle -> where will the circle stop. It is expressed in radians.(360° = Math.PI * 2)
+    counterclockwise -> It is an optional. Specifies whether the drawing should be counterclockwise
+        or clockwise. False is default and indicates clockwise, while true indicates counterclockwise.
