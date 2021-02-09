@@ -89,3 +89,31 @@ Lesson 1. 1.2.2021.-7.2.2021.
     endingAngle -> where will the circle stop. It is expressed in radians.(360° = Math.PI * 2)
     counterclockwise -> It is an optional. Specifies whether the drawing should be counterclockwise
         or clockwise. False is default and indicates clockwise, while true indicates counterclockwise.
+
+• PI - It is a property which represents the PI value which is approximately: 3.14
+|--> SYNTAX: Math.PI
+
+• random - It is a function which returns a floating-point number in range from 0 to 1. Number 0 is inclusive, but 1 
+    is not. 
+|--> SYNTAX: Math.random()
+
+• floor - It is a function that returns largest integer less than or equal to the given number.
+|--> SYNTAX: Math.floor()
+
+• function - A Javascript function is a block of code designed to perform a particular task. It is 
+    executed once when "something" invokes/calls it. It is defined by a keyword "function", which is followed
+    by a name of method and a parentheses. Naming rules are same as naming rules for naming variables. 
+|--> SYNTAX: function 
+
+• requestAnimationFrame - It is a method which tells the browser that you wish to perform an animation and request 
+    that the browser calls a specific function to update an animation before the next repaint. This method should be called 
+    whenever we are ready to update animation. The number of callbacks is usually around 60 per second. 
+|--> SYNTAX: requestAnimationFrame()
+
+• clearRect - It is a method which clears out an area in shape of rectangle. It takes in 4 arguments. 
+    x -> x-coordinate where it will start clearing, left top corner  
+    y -> y-cordinate where it will start clearing, left top corner 
+    width -> the width of the clearing rectangle 
+    height -> the height of the clearing rectangle 
+|--> SYNTAX: context.clearRect(x, y, width, height)
+
