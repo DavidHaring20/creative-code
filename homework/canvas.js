@@ -161,7 +161,7 @@ function animate() {
 // CREATE AN ARRAY WHERE WE WILL STORE CIRCLES 
 var arrayOfCircles = [];
 // CREATE FOR-LOOP WHERE WE WILL CREATE AND STORE ALL CIRCLES INTO "arrrayOfCircles"
-for (var i = 0; i < 100; i++) {
+for (var i = 0; i < 200; i++) {
     // VARIABLE DECLARATION
     var radius = 30;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
