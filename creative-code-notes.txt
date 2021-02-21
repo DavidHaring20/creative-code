@@ -117,3 +117,7 @@ Lesson 1. 1.2.2021.-7.2.2021.
     height -> the height of the clearing rectangle 
 |--> SYNTAX: context.clearRect(x, y, width, height)
 
+Lesson 3. 14.02.2021. - 21.02.2021.
+• addEventListener - It is a method which sets up a function that will be called whenever the specified event 
+    is delivered to the target. Common targets are: Element, Document and Window.
+|--> SYNTAX: window.addEventListner("type_of_event", () => {})
