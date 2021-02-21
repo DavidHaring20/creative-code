@@ -1,0 +1,4 @@
+PICTURE WIDTH: 1280px 
+    |-> 5 frames per row => 256px frame width
+PICTURE HEIGHT: 748px
+    |-> 3 frames per column => 249px frame height
