@@ -1,0 +1,6 @@
+GUIDE THROUGH REPOSITORY 
+Each lesson is it's own folder. Each folder is then split into two more: 
+    - homework - work done by myself at home or homework exercise/split
+    - schoolwork - work done during the lectures
+There is also "creative-code-notes.txt" folder where I write down things I come into the contact and are unfamiliar with. 
+I only have one index file and based on which script I need, I change script source(src) in it.
