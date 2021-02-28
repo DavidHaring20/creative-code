@@ -11,8 +11,6 @@ function setUp() {
 
     canvas.width = width;
     canvas.height = height;
-    console.log("This is width: " + width);
-    console.log("This is height: " + height);
 
     // SET PARAMETERS FOR VERTICAL LINES
     const xOfVerticalLine1 = 300;
@@ -34,7 +32,10 @@ function setUp() {
 
 function drawHours() {
     let now = new Date();
-    let hoursNow = now.getHours();
+    let hoursTo24 = now.getHours();
+    let hours = hoursTo24 % 12;
+    
+
     // SECTION FOR HOURS 
     // 1 TO 6
     hLine1 = new Line(100, 150, 100, 250);
@@ -67,7 +68,7 @@ function drawHours() {
     arrayForLineLocationsForHours.push(hLine11);
     arrayForLineLocationsForHours.push(hLine12);
 
-    for (let i = 0; i < hoursNow; i++) {
+    for (let i = 0; i < hours; i++) {
         arrayForLineLocationsForHours[i].draw(context);
     }
 }
