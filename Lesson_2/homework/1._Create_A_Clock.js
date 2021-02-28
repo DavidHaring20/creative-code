@@ -1,134 +1,177 @@
-// CHECK IF THERE IS SUCCESSFULL CONNECTION
-console.log("Hello there from \"1._Create_A_Clock.js\"file.");
-
-// ASSIGN CONTEXT TO VARIABLE AND ADD IT TO DO 2D DRAWING 
-const canvas = document.getElementById("canvas");
+const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
-// WIDTH AND HEIGHT OF OUR CANVAS
-const width = canvas.width;
-const height = canvas.height;
+// CHECK IF THERE IS SUCCESSFULL CONNECTION BETWEEN INDEX.HTML AND THIS SCRIPT
+console.log("Hello from \"1._Create_A_Clock.js\" !");
 
-// INITIALIZE VARIABLES FOR THE CLOCK 
-const radiusOfTheOuttestCircle = 200;
-const radiusOfTheInnest = 4;
-const xCoordinateOfCenter = 300;
-const yCoordinateOfCenter = 300;
-context.font = "50px Montserrat";
+function setUp() {
+    // SET CANVAS WIDTH AND CANVAS HEIGHT
+    const width = 900;
+    const height = 550;
 
-// console.log("Canvas's width: " + width + "\nCanvas's height: " + height);
+    canvas.width = width;
+    canvas.height = height;
+    console.log("This is width: " + width);
+    console.log("This is height: " + height);
 
+    // SET PARAMETERS FOR VERTICAL LINES
+    const xOfVerticalLine1 = 300;
+    const xOfVerticalLine2 = 600;
+    const yOfUpperPartOfVerticalLine = 0;
+    const yOfLowerPartOfVerticalLin = 900;
 
-function drawCirclesOfAClock() {
-    // OUTER CIRCLE FOR A CLOCK
+    // DRAW LINES WHICH WILL SEPARATE HOURS, MINUTES AND SECONDS
     context.beginPath();
-    context.lineWidth = 10;
-    context.arc(xCoordinateOfCenter, yCoordinateOfCenter, radiusOfTheOuttestCircle, 0, Math.PI * 2, false);
+    context.moveTo(xOfVerticalLine1, yOfUpperPartOfVerticalLine);
+    context.lineTo(xOfVerticalLine1, yOfLowerPartOfVerticalLin);
     context.stroke();
 
-
-    // DRAW CIRCLE FOR NEEDLES
     context.beginPath();
-    context.strokeStyle = 'black';
-    context.lineWidth = 1;
-    context.arc(xCoordinateOfCenter, yCoordinateOfCenter, radiusOfTheInnest, 0, Math.PI * 2, false);
-    context.stroke();
-}
-
-// WRITE NUMBERS 
-// center of clock = (300, 300)
-// distance from center of clock and the outtest circle = 200
-
-function drawMainNumbers() {
-    // WRITE 12/0
-    context.fillText("XII", 265, 150);
-
-    // WRITE 1 
-    context.fillText("I", 375, 180);
-
-    // WRITE 2 
-    context.fillText("II", 420, 240);
-
-    // WRITE 3
-    context.fillText("III", 440, 315);
-
-    // WRITE 4
-    context.fillText("IV", 420, 395);
-
-    // WRITE 5
-    context.fillText("V", 370, 460);
-
-    // WRITE 6
-    context.fillText("VI", 270, 485);
-
-    // WRITE 7
-    context.fillText("VII", 180, 460);
-
-    // WRITE 8
-    context.fillText("VIII", 120, 390);
-
-    // WRITE 9
-    context.fillText("IX", 110, 315);
-
-    // WRITE 10
-    context.fillText("X", 130, 240);
-
-    // WRITE 11 
-    context.fillText("XI", 180, 180);
-}
-
-function drawHourAndMinuteNeedles() {
-    // DRAW HOUR NEEDLE 
-    context.beginPath();
-    context.lineWidth = 7;
-    context.moveTo(xCoordinateOfCenter, yCoordinateOfCenter);
-    context.lineTo(200, 300);
-    context.stroke();
-
-    // DRAW MINUTE NEEDLE 
-    context.beginPath();
-    context.lineWidth = 5;
-    context.moveTo(xCoordinateOfCenter, yCoordinateOfCenter);
-    context.lineTo(150, 260);
+    context.moveTo(xOfVerticalLine2, yOfUpperPartOfVerticalLine);
+    context.lineTo(xOfVerticalLine2, yOfLowerPartOfVerticalLin);
     context.stroke();
 }
 
-var now = new Date();
-var hours = now.getHours();
-var minutes = now.getMinutes();
-var seconds = now.getSeconds();
+function drawHours() {
+    let now = new Date();
+    let hoursNow = now.getHours();
+    // SECTION FOR HOURS 
+    // 1 TO 6
+    hLine1 = new Line(100, 150, 100, 250);
+    hLine2 = new Line(100, 250, 200, 250);
+    hLine3 = new Line(200, 250, 200, 150);
+    hLine4 = new Line(200, 150, 100, 150);
+    hLine5 = new Line(100, 150, 200, 250);
+    hLine6 = new Line(200, 150, 100, 250);
 
-// DRAW SECONDS NEEDLE 
-// context.beginPath();
-// context.lineWidth = 3;
-// context.moveTo(xCoordinateOfCenter, yCoordinateOfCenter);
-// context.lineTo(390, 170);
-// context.stroke();
+    // 7 TO 12
+    hLine7 = new Line(100, 300, 100, 400);
+    hLine8 = new Line(100, 400, 200, 400);
+    hLine9 = new Line(200, 400, 200, 300);
+    hLine10 = new Line(200, 300, 100, 300);
+    hLine11 = new Line(100, 300, 200, 400);
+    hLine12 = new Line(200, 300, 100, 400);
 
-function drawBody() {
-    drawCirclesOfAClock();
-    drawMainNumbers();
-    drawHourAndMinuteNeedles();
-}
+    // CREATE AND POPULATE ARRAY WITH LINES NEEDED TO CREATE HOUR FIGURES 
+    const arrayForLineLocationsForHours = [];
+    arrayForLineLocationsForHours.push(hLine1);
+    arrayForLineLocationsForHours.push(hLine2);
+    arrayForLineLocationsForHours.push(hLine3);
+    arrayForLineLocationsForHours.push(hLine4);
+    arrayForLineLocationsForHours.push(hLine5);
+    arrayForLineLocationsForHours.push(hLine6);
+    arrayForLineLocationsForHours.push(hLine7);
+    arrayForLineLocationsForHours.push(hLine8);
+    arrayForLineLocationsForHours.push(hLine9);
+    arrayForLineLocationsForHours.push(hLine10);
+    arrayForLineLocationsForHours.push(hLine11);
+    arrayForLineLocationsForHours.push(hLine12);
 
-function moveSecond() {
-    
-    var xCoordinatesOfSeconds = [300, 315, 330, 345, 360, 380, 390, 400, 410, 420, 430, 435, 440, 445, 447, 450, 445, 445, 435, 430, 422, 417, 406, 398, 390, 372, 354, 336, 318, 300, 282, 264, 246, 228, 210, 198, 186, 174, 162, 150, 148, 146, 144, 142, 140, 142, 144, 146, 148, 150, 160, 170, 180, 190, 200, 220, 240, 260, 280, 300];
-    var yCoordinatesOfSeconds = [140, 145, 150, 155, 168, 170, 180, 190, 205, 220, 230, 245, 260, 275, 290, 300, 320, 340, 360, 380, 390, 408, 415, 425, 440, 446, 452, 458, 464, 470, 464, 458, 452, 446, 440, 426, 412, 398, 384, 370, 356, 342, 328, 314, 300, 285, 270, 255, 240, 225, 214, 203, 192, 182, 170, 164, 158, 152, 146, 140];
-
-    for (var i = 0; i < 60; i++) {
-        // CLEAR EVERYTHING
-        context.clearRect(0, 0, width, height);
-
-        // WE NEED TO DRAW BODY
-        drawBody();
-        
-        // NOW WE NEED TO REDRAW THE NEEDLE FOR SECONDS 
-        context.beginPath();
-        context.lineWidth = 3;
-        context.moveTo(xCoordinateOfCenter, yCoordinateOfCenter);
-        context.lineTo(xCoordinatesOfSeconds[i], yCoordinatesOfSeconds[i]);
-        context.stroke();
-        console.log(xCoordinatesOfSeconds + "" + yCoordinatesOfSeconds);
+    for (let i = 0; i < hoursNow; i++) {
+        arrayForLineLocationsForHours[i].draw(context);
     }
 }
+
+function drawMinutes() {
+    let now = new Date();
+    let minutesNow = now.getMinutes();      
+    // SECTION FOR MINUTES 
+    // CREATE ARRAY WHICH WILL HAVE ALL LOCATIONS FOR MINUTES SHAPES
+    const arrayForLineLocationsForMinutes = [];
+
+    for (let i = 0; i < 10; i++) {
+        mLine1 = new Line(360, 50, 360, 100);
+        mLine2 = new Line(360, 100, 420, 100);
+        mLine3 = new Line(420, 100, 420, 50);
+        mLine4 = new Line(420, 50, 360, 50);
+        mLine5 = new Line(360, 50, 420, 100);
+        mLine6 = new Line(360, 100, 420, 50);
+
+        arrayForLineLocationsForMinutes.push(mLine1);
+        arrayForLineLocationsForMinutes.push(mLine2);
+        arrayForLineLocationsForMinutes.push(mLine3);
+        arrayForLineLocationsForMinutes.push(mLine4);
+        arrayForLineLocationsForMinutes.push(mLine5);
+        arrayForLineLocationsForMinutes.push(mLine6);
+    }
+
+    for (let i = 0; i < minutesNow; i++) {
+        let multiple;
+
+        if (i >= 30 ) {
+            multiple = Math.floor((i - 30) / 6);
+        } else {
+            multiple = Math.floor(i / 6);
+        }
+        let moveToRight = Math.floor(i / 30);    
+
+        arrayForLineLocationsForMinutes[i].x1 += 120 * moveToRight;
+        arrayForLineLocationsForMinutes[i].y1 += 100 * multiple;
+        arrayForLineLocationsForMinutes[i].x2 += 120 * moveToRight
+        arrayForLineLocationsForMinutes[i].y2 += 100 * multiple;
+        arrayForLineLocationsForMinutes[i].draw(context);
+    }
+}
+
+function drawSeconds() {
+    let now = new Date();
+    let secondsNow = now.getSeconds();
+    // SECONDS SECTION 
+    // CREAT AN ARRAY WHICH WILL HOLD ALL LOCATIONS FOR SECONDS SHAPES
+    const arrayForLineLocationsForSeconds = [];
+
+    for (let i = 0; i < 10; i++) {
+        sLine1 = new Line(660, 50, 660, 100);
+        sLine2 = new Line(660, 100, 720, 100);
+        sLine3 = new Line(720, 100, 720, 50);
+        sLine4 = new Line(720, 50, 660, 50);
+        sLine5 = new Line(660, 50, 720, 100);
+        sLine6 = new Line(660, 100, 720, 50);
+
+        arrayForLineLocationsForSeconds.push(sLine1);
+        arrayForLineLocationsForSeconds.push(sLine2);
+        arrayForLineLocationsForSeconds.push(sLine3);
+        arrayForLineLocationsForSeconds.push(sLine4);
+        arrayForLineLocationsForSeconds.push(sLine5);
+        arrayForLineLocationsForSeconds.push(sLine6);
+    }
+
+    for (let i = 0; i < secondsNow; i++) {
+        let multiple;
+
+        if (i >= 30 ) {
+            multiple = Math.floor((i - 30) / 6);
+        } else {
+            multiple = Math.floor(i / 6);
+        }
+        let moveToRight = Math.floor(i / 30);
+
+        arrayForLineLocationsForSeconds[i].x1 += 120 * moveToRight;
+        arrayForLineLocationsForSeconds[i].y1 += 100 * multiple;
+        arrayForLineLocationsForSeconds[i].x2 += 120 * moveToRight;
+        arrayForLineLocationsForSeconds[i].y2 += 100 * multiple;
+        arrayForLineLocationsForSeconds[i].draw(context);
+    }
+}
+
+function drawEverything() {
+    setUp();
+    drawHours();
+    drawMinutes();
+    drawSeconds();
+}
+
+function clock() {
+    // CLEAR EVERYTHING 
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // DRAW EVERYTHING
+    drawEverything();
+
+    setTimeout(() => {
+        console.log();
+        requestAnimationFrame(clock);
+    }), 1000;
+}
+
+clock();
