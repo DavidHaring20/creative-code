@@ -16,9 +16,20 @@
 
 • Matter.Bodies = module that contains factory methods for creating rigid body models with commonly, 
     used body configurations (rectangles, circles and other polygons).
-•
-•
-•
+
+• Matter.Composite = module that contains methods for creating and manipulating composite bodies. A composite body is a collection 
+    of Matter.Body, Matter.Constraint and other Matter.Composite, therefore composites form a tree structure. It is important to use
+    the function in this module to modify the composites, rather than directly modifying their properties. Note that the Matter.World 
+    object is also a type of Matter.Composite and as such all composite methods here can also operate on Matter.World.
+
+• Matter.Constaint = module that contains methods for creating and manipulating constaints. Constraints are used for specyfing that a fixed, 
+    distance must be maintained between two bodies. The stiffness of constraints can be modified to create a springs or elastic
+
+• Matter.MouseConstraint = module that contains methods for creating mouse constraints. Mouse constraints are used for allowing user interaction,
+    providing the ability to move bodies via the mouse or touch.
+    -   .create(engine, [options]) = creates a new mouse constraint. All properties have default values, and many are pre-calculated automatically
+        based on other properties.
+         
 •
 •
 •
