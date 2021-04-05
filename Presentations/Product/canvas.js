@@ -1,6 +1,6 @@
 console.log("This is a proof of successful communication between Js and Html.");
 
-var canvas = document.querySelector('canvas');
+var canvas = document.getElementById('canvas');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
