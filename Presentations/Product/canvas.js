@@ -10,6 +10,8 @@ let numberOfCircles = 100;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+getNewColors();
+
 // METHOD WHICH CREATES A CIRCLE AND UPDATES IT'S MOVEMENT 
 function Circle(x, y, dx, dy, radius) {
     this.x = x;
@@ -80,9 +82,13 @@ for (var i = 0; i < numberOfCircles; i++) {
 
 // METHOD THAT GIVES RANDOM COLOR 
 function getNewColors() {
-    circleBodyColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-    circleLineColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-    console.log(circleBodyColor, circleLineColor);
+    circleBodyColor = getRandomColor();
+    circleLineColor = getRandomColor();
+    canvas.style.backgroundColor = getRandomColor();
+}
+
+function getRandomColor() {
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
 }
 
 setInterval(() => {
