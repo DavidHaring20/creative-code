@@ -1,7 +1,11 @@
 console.log("This is a proof of successful communication between Js and Html.");
 
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
+let canvas = document.getElementById('canvas');
+let context = canvas.getContext('2d');
+
+let circleBodyColor;
+let circleLineColor;
+let numberOfCircles = 100;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -18,8 +22,8 @@ function Circle(x, y, dx, dy, radius) {
     this.draw = function() {
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        context.fillStyle = 'red';
-        context.strokeStyle = 'yellow';
+        context.fillStyle = circleBodyColor;
+        context.strokeStyle = circleLineColor;
         context.stroke();
         context.fill();
     }
@@ -62,17 +66,28 @@ function animate() {
 var arrayOfCircles = [];
 
 // CREATE FOR-LOOP WHERE WE WILL CREATE AND STORE ALL CIRCLES INTO "arrrayOfCircles"
-for (var i = 0; i < 200; i++) {
+for (var i = 0; i < numberOfCircles; i++) {
     // VARIABLE DECLARATION
     // RANDOM x (x coordinate), RANDOM y (y coordinate), RANDOM dx (movemenet speed on x axis), 
-    // RANDOM dy (movement speed on y axis) and NOT-RANDOM radius 
-    var radius = 30;
+    // RANDOM dy (movement speed on y axis) and RANDOM radius 
+    var radius = Math.random() * 50;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight - radius * 2)+ radius;
     var dx = (Math.random() - 0.5) * 8;
     var dy = (Math.random() - 0.5) * 8;
     arrayOfCircles.push(new Circle(x, y, dx, dy, radius));
 }
+
+// METHOD THAT GIVES RANDOM COLOR 
+function getNewColors() {
+    circleBodyColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    circleLineColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    console.log(circleBodyColor, circleLineColor);
+}
+
+setInterval(() => {
+    getNewColors();
+}, 4000);
 
 // CALL FOR ANIMATION FUNCTION
 animate();
