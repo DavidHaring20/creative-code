@@ -5,12 +5,16 @@ let context = canvas.getContext('2d');
 
 let circleBodyColor;
 let circleLineColor;
-let numberOfCircles = 100;
+let numberOfCircles = 30;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 getNewColors();
+
+window.addEventListener("click", () => {
+    eatCircle();
+});
 
 // METHOD WHICH CREATES A CIRCLE AND UPDATES IT'S MOVEMENT 
 function Circle(x, y, dx, dy, radius) {
@@ -63,6 +67,25 @@ function animate() {
         arrayOfCircles[i].update();
     }
 }
+
+function eatCircle() {
+    let length = arrayOfCircles.length;
+    let biggestRadius = arrayOfCircles[length - 1].radius;
+    
+    if (length > 1 && biggestRadius * 3 < canvas.width - 200 && biggestRadius * 3 < canvas.height - 50) {
+        let lastCircle = arrayOfCircles[arrayOfCircles.length - 1];
+        let preLastCircle = arrayOfCircles[arrayOfCircles.length - 2];
+    
+        // GET RADIUS OF THE LAST CIRCLE
+        let radiusOfPreLastCircle = preLastCircle.radius;
+
+        // ADD THE RADIUS TO THE PRE-LAST CIRCLE 
+        lastCircle.radius += radiusOfPreLastCircle;
+
+        // DELETE LAST CIRCLE 
+        arrayOfCircles.splice(arrayOfCircles.length - 2, 1);
+    }
+};
 
 // AN ARRAY WHERE WE WILL STORE CIRCLES 
 var arrayOfCircles = [];
